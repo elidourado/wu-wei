@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en" }}">
+  <head>
+    {{- partial "meta-style-scripts.html" . -}}
+  </head>
+  <body>
+    {{ block "header" .}}
+      {{- with .Site.Social.twitter }}{{ partial "twitter-widget.html" . }}{{ end -}}
+      {{- partial "site-header.html" . -}}
+    {{ end }}
+    {{ block "main" . }}
+    {{ end }}
+    {{ block "footer" . }}
+      {{- partial "site-footer.html" . -}}
+    {{ end }}
+    <script>
+      window.addEventListener('load', () =>{
+        quicklink.listen();
+     });
+    </script>
+  </body>
+</html>

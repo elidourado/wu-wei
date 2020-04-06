@@ -1,0 +1,43 @@
+{{ define "main" }}
+<main>
+    <article>
+        <!-- <header> -->
+            <h1>{{ .Title | markdownify }}</h1>
+        <!-- </header> -->
+        <ul class="terms">
+            {{ range $key, $value := .Data.Terms }}
+                <li data-count="{{$value.Count}}"><a href="{{ "/" | relLangURL }}{{ $.Data.Plural | urlize }}/{{ $key | urlize }}">
+                    {{ $key }}
+                    </a></li>
+            {{ end }}
+            </ul>
+    </article>
+</main>
+<script>
+    $(window).on('load', function() {
+        var nums = $('ul.terms li').map(function() {
+            return parseInt($(this).data('count'));
+        }).get();
+        var maxVal = Math.max(...nums);
+        var minVal = Math.min(...nums);
+        var baseFont = $('ul.terms li').css("font-size");
+        var fontsplit = baseFont.match(/([0-9\.]+)\s?([a-z\%]+)/);
+        var minFont = parseInt(fontsplit[1])/2;
+        var maxFont = parseInt(fontsplit[1])*3;
+        var fontUnits = fontsplit[2];
+        $('ul.terms li').each(function() {
+            var itemCount = parseInt($(this).data('count'));
+            if (itemCount) {
+                var fontSize = (((itemCount )/(maxVal - minVal)) * (maxFont - minFont)) + minFont;
+                $(this).css("font-size", fontSize+fontUnits);
+                // $(this).css("font-size", 5);
+                $(this).attr("title", (itemCount));
+            } else {
+                // if we can't determine the year, just set it to 90% size
+                // $(this).css("font-size", 2);
+                $(this).attr("title", ("oops"));
+            }
+        });
+    });
+</script>
+{{ end }}

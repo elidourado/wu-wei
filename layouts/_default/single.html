@@ -1,0 +1,55 @@
+{{ define "main" }}
+<main>
+  <h1 id="title">{{ .Title | markdownify }}</h1>
+  {{ if (or (in .Site.Params.blogs .Section) (and (eq "blog" .Section) (not (isset .Site.Params "blogs")))) }}
+  <aside id="meta-top">
+      <section>
+          <span id="date" title="{{ .Date.Format .Site.Params.dateformfull }}">{{ .Date.Format .Site.Params.dateform }}</span>
+          {{ if not .Site.Params.noreadingtime }}
+          <span id="reading-time">{{ .ReadingTime }} minute read</span>
+          {{ end }}
+          {{ if isset .Params "hacker_news_id" }}
+          {{ if ne .Params.hacker_news_id "" }}
+          <span id="hn"><a href="https://news.ycombinator.com/item?id={{ .Params.hacker_news_id }}">Hacker News</a></span>
+          {{ end }}
+        {{ end }}
+
+        </section>    
+  </aside>
+  {{ end }}
+  <div>
+        <article id="content">
+           {{ .Content }}
+        </article>
+  </div>
+{{ if (or (in .Site.Params.blogs .Section) (and (eq "blog" .Section) (not (isset .Site.Params "blogs")))) }}
+<aside id="meta-bottom">
+    <div>
+    {{ with .Params.tags }}
+    <ul id="tags">
+      {{ range . }}
+      {{ if ne . "" }}
+        <li> <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+    </div>
+    <nav id="prev-next">
+        {{ with .PrevInSection }}
+        <div class="previous">
+          <i class="fas fa-fast-backward"></i>
+          <a href="{{.Permalink}}"> {{.Title}}</a>
+        </div>
+        {{ end }}
+        {{ with .NextInSection }}
+        <div class="next">
+          <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+          <i class="fas fa-fast-forward"></i>
+        </div>
+        {{ end }}
+    </nav>
+</aside>
+{{ end }}
+</main>
+{{ end }}

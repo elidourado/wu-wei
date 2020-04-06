@@ -1,0 +1,49 @@
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ block "title" . }}{{ with .Params.Title }}{{if (ne . $.Site.Title)}}{{ . | markdownify | plainify | htmlUnescape }} | {{ end }}{{ end }}{{ .Site.Title }}{{ end }}</title>
+
+<!-- External CSS -->
+<link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i|Source+Sans+Pro:400,700,400i,700i|Space+Mono:400,700&display=block" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/normalize.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+<!-- Site style -->
+{{- $CSS := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css") -}}
+<link href='{{ $CSS.RelPermalink }}' rel="stylesheet" media="screen" />    
+
+<!-- JS -->
+<script src="https://unpkg.com/jquery" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/quicklink" crossorigin="anonymous"></script>
+
+<!-- Favicon -->
+{{- if .Site.Params.favicon -}}
+<link rel="shortcut icon" href="/{{ .Site.Params.favicon }}" type="image/x-icon" />
+{{- end -}}
+
+<!-- RSS -->
+{{- with .OutputFormats.Get "rss" -}}
+    {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML -}}
+{{- end -}}
+
+<!-- Mathjax -->
+{{- if .Params.mathjax}}{{ partial "mathjax.html" . }}{{- end -}}
+
+<!-- Internal templates -->
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/twitter_cards.html" . -}}
+{{- template "_internal/google_news.html" . -}}
+{{- template "_internal/schema.html" . -}}
+{{/*  {{- template "_internal/google_analytics_async.html" . -}}  */}}
+
+{{- with .Site.GoogleAnalytics -}}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ . }}');
+</script>
+{{- end -}}

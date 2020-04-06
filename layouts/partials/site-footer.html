@@ -1,0 +1,5 @@
+<footer>
+	{{ if templates.Exists ( printf "partials/%s" "newsletter.html" ) }}
+		{{ partial "newsletter.html" . }}
+	{{ end }}
+</footer>

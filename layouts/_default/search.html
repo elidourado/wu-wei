@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main>
+  <h1 id="title">{{ .Title | markdownify }}</h1>
+  <div>
+        <article id="content">
+          <form class="search" action="{{ "search" | relURL }}">
+            <input id="search-query" name="query" placeholder="Search &#9166;"/>
+          </form>
+          <div id="search-results">
+          </div>
+        </article>
+  </div>
+</main>
+<script id="search-result-template" type="text/x-js-template">
+  <div id="summary-${key}" class=search-result>
+    <a href="${link}">${title}</a>
+    <div class="front-matter">
+    <p>${snippet}...</p>
+    </div>
+  </div>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.5/fuse.min.js" integrity="sha256-Yrh3VGzE4d9b4KANknPJAhfcKt9SgHTL0v/FrJFoPzw=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+<script src="/js/search.js"></script>
+{{ end }}

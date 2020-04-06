@@ -1,0 +1,32 @@
+{{ define "main" }}
+<main>
+    {{if not .IsHome}}
+        <header>
+            <h1>{{.Title | markdownify}}</h1>
+        </header>
+    {{ end }}
+    <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
+    {{.Content}}
+    {{ $nbPosts := len (where (where .Site.Pages "Section" "blog") "Params.best" true) }}
+    {{ if gt $nbPosts 0 }}
+    <h3>Favorite blog posts</h3>
+    <ul class="pagelist">
+        <!-- Ranges through content/blog/*.md tagged "best" -->
+        {{ range (where (where .Site.Pages "Section" "blog") "Params.best" true) }}
+            {{ partial "li.html" . }}
+        {{ end }}
+    </ul>
+    {{ else if isset .Site.Params "latestpostcount" }}
+    {{ $nbPosts := len (where .Site.Pages "Section" "blog") }}
+    {{ if gt $nbPosts 0 }}
+    <h3>Latest blog posts</h3>
+    <ul class="pagelist">
+    <!-- Ranges through content/blog/*.md -->
+    {{ range (first .Site.Params.latestpostcount (where .Site.Pages "Section" "blog")) }}
+        {{ partial "li.html" . }}
+    {{ end }}
+    </ul>
+    {{ end }} <!-- posts > 0 -->
+    {{ end }} <!-- latest post count set -->
+</main>
+{{ end }}

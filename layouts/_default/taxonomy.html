@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main>
+	<article>
+		<!-- <header> -->
+		<h1>Posts tagged {{.Title | markdownify }}</h1>
+		<!-- </header> -->
+	</article>
+	<ul class="pagelist">
+		{{ range .Data.Pages }} {{ partial "li.html" . }} {{ end }}
+	</ul>
+</main>
+{{ end }}

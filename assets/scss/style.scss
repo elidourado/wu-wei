@@ -6,7 +6,13 @@ $second-color: #aaa;
 $link-color: #7080c0;
 $footer-color: #ccc;
 
+html {
+	min-height: 100vh;
+}
+
 body {
+	position: relative;
+	top: 0px;
 	font-size: unquote(
 		"min(calc(16px + (22-16) * ((100vw - 320px) / (820-320))),22px)"
 	);
@@ -16,6 +22,10 @@ body {
 	// padding-bottom: 20px;
 	// margin: 0 auto;
 	color: $font-color;
+	min-height: unquote(
+		"calc(100vh - 170px - 2em)"
+	);
+	padding-bottom: 170px;
 }
 
 strong {
@@ -291,13 +301,15 @@ main {
 }
 
 footer {
-  margin-top: 50px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 100%;
-  background-color: $footer-color;
-  font-family: $sans-serif;
-  min-height: 80px;
+	position: absolute;
+	bottom: 0px;
+	// margin-top: 50px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	width: 100%;
+	background-color: $footer-color;
+	font-family: $sans-serif;
+	min-height: 80px;
 }
 
 /* main a[href*="wikipedia.org/wiki/"]::after {

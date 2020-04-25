@@ -323,37 +323,31 @@ footer {
   opacity: 0.85;
 } */
 
-/* brexitguide experiment */
+/* widgets */
 
-#chart {
-	height: calc(200px + 40vw);
-}
+.widget-container {
+	// overflow: wrap;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+  }
 
-#donate {
-	display: grid;
-	grid-column-gap: 20px;
-	grid-template-columns: auto auto auto auto;
-
-	.qr-code {
-		text-align: center;
-		font-size: 0.75rem;
-		word-break: break-word;
-
-		img {
-			margin: 0 auto;
-		}
+div.widget {
+	display: inline-block;
+	font-size: 1rem;
+	min-width: 250px;
+	max-width: 390px;
+	table {
+		width: 100%;
 	}
 }
 
-.tablenote {
-	color: #999;
-	font-size: 0.9rem;
-}
+/* tables */
 
-td.name,
-th.name {
+td.text,
+th.text {
 	text-align: left;
-	width: 75%;
 }
 
 td.number,
@@ -361,17 +355,59 @@ th.number {
 	text-align: right;
 }
 
-#tables {
-	display: grid;
-	grid-column-gap: 50px;
-	grid-template-columns: auto auto;
+
+
+/* in-house semantic classes */
+
+.bold {
+	font-weight: bold;
 }
 
-.table-container {
-	margin-bottom: 1.5em;
-	width: 100%;
+.center {
+	text-align: center;
+	margin: 0 auto;
 }
 
-table.table {
-	width: 375px;
-}
+
+
+// #chart {
+// 	height: calc(200px + 40vw);
+// }
+
+// #donate {
+// 	display: grid;
+// 	grid-column-gap: 20px;
+// 	grid-template-columns: auto auto auto auto;
+
+// 	.qr-code {
+// 		text-align: center;
+// 		font-size: 0.75rem;
+// 		word-break: break-word;
+
+// 		img {
+// 			margin: 0 auto;
+// 		}
+// 	}
+// }
+
+// .tablenote {
+// 	color: #999;
+// 	font-size: 0.9rem;
+// }
+
+
+
+// #tables {
+// 	display: grid;
+// 	grid-column-gap: 50px;
+// 	grid-template-columns: auto auto;
+// }
+
+// .table-container {
+// 	margin-bottom: 1.5em;
+// 	width: 100%;
+// }
+
+// table.table {
+// 	width: 375px;
+// }

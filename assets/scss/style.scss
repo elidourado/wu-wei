@@ -326,7 +326,7 @@ footer {
 /* widgets */
 
 .widget-container {
-	// overflow: wrap;
+	// overflow: auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
@@ -335,7 +335,7 @@ footer {
 
 div.widget {
 	display: inline-block;
-	font-size: 1rem;
+	font-size: .7em;
 	min-width: 250px;
 	max-width: 390px;
 	table {

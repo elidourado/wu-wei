@@ -131,7 +131,7 @@ main {
 	#meta-top {
 		font-family: $sans-serif;
 		font-size: 0.75em;
-		color: #aaa;
+		color: $second-color;
 		margin-top: -1.2em;
 
 		span:not(:last-of-type)::after {
@@ -150,14 +150,16 @@ main {
 	}
 
 	aside#meta-bottom {
+		color: $second-color;
+		font-family: $sans-serif;
 		display: block;
 		overflow: hidden;
+		font-size: 0.75em;
 
 		nav#prev-next {
-			font-family: $sans-serif;
 			color: $second-color;
 			width: 100%;
-			font-size: 0.75em;
+			padding-top: 10px;
 
 			div {
 				display: table;
@@ -273,26 +275,32 @@ main {
 
 		&#tags {
 			list-style-type: none;
+			display: inline;
+			padding-inline-start: 0px;
 
 			li {
 				display: inline-block;
 				line-height: 0;
-				list-style-position: inside;
-				font-size: 0.75em;
-				font-family: $sans-serif;
+				// list-style-position: inside;
+				// font-family: $sans-serif;
+
+				&:not(:last-of-type)::after {
+					content: " · ";
+				}
+		
 
 				a {
 					display: inline-block;
-					padding: 0.75em;
+					// padding: 0.75em;
 					text-decoration: none;
 					color: $second-color;
-					background-color: #eee;
-					border: 5px;
-					border-radius: 5px;
+					// background-color: #eee;
+					// border: 5px;
+					// border-radius: 5px;
 
 					&:visited {
 						color: $second-color;
-						background-color: #eee;
+						// background-color: #eee;
 					}
 				}
 			}
@@ -309,6 +317,7 @@ footer {
 	width: 100%;
 	background-color: $footer-color;
 	font-family: $sans-serif;
+	font-size: 0.75em;
 	min-height: 80px;
 }
 

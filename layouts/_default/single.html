@@ -26,11 +26,10 @@
 <aside id="meta-bottom">
     <div>
     {{ with .Params.tags }}
+    <span id="tags-label">Tagged:</span>
     <ul id="tags">
-      {{ range . }}
-      {{ if ne . "" }}
+      {{ range where . "." "ne" ""}}
         <li> <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
-      {{ end }}
       {{ end }}
     </ul>
     {{ end }}
@@ -38,14 +37,14 @@
     <nav id="prev-next">
         {{ with .PrevInSection }}
         <div class="previous">
-          <i class="fas fa-fast-backward"></i>
+          <i class="fas fa-arrow-alt-circle-left"></i>
           <a href="{{.Permalink}}"> {{.Title}}</a>
         </div>
         {{ end }}
         {{ with .NextInSection }}
         <div class="next">
           <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
-          <i class="fas fa-fast-forward"></i>
+          <i class="fas fa-arrow-alt-circle-right"></i>
         </div>
         {{ end }}
     </nav>

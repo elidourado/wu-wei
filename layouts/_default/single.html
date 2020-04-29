@@ -29,7 +29,7 @@
     <span id="tags-label">Tagged:</span>
     <ul id="tags">
       {{ range where . "." "ne" ""}}
-        <li> <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a> </li>
+        <li> <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a> </li>
       {{ end }}
     </ul>
     {{ end }}
@@ -38,12 +38,12 @@
         {{ with .PrevInSection }}
         <div class="previous">
           <i class="fas fa-arrow-alt-circle-left"></i>
-          <a href="{{.Permalink}}"> {{.Title}}</a>
+          <a href="{{.RelPermalink}}"> {{.Title}}</a>
         </div>
         {{ end }}
         {{ with .NextInSection }}
         <div class="next">
-          <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+          <a class="next" href="{{.RelPermalink}}"> {{.Title}}</a>
           <i class="fas fa-arrow-alt-circle-right"></i>
         </div>
         {{ end }}

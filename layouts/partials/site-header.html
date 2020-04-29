@@ -1,5 +1,5 @@
 <header>
-	<a href="{{ .Site.BaseURL }}"><h1>{{ .Site.Title}}</h1></a>
+	<a href="{{ .Site.Home.RelPermalink }}"><h1>{{ .Site.Title}}</h1></a>
 	<nav id="header-menu">
 		<ul>
 			{{ range $.Site.Data.menu.links }}

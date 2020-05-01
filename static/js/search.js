@@ -22,7 +22,7 @@ var fuse;
 var searchQuery = "";
 var ready = false;
 
-$.getJSON("/index.json", function (data) {
+$.getJSON(index, function (data) {
 	// console.log("loaded index");
 	fuse = new Fuse(data, fuseOptions);
 	ready = true;

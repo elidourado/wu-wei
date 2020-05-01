@@ -19,8 +19,8 @@
     </div>
   </div>
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/5.2.3/fuse.min.js" integrity="sha256-/VZ8+MFzK48YY4iDTxLOyhRKj5HUhvGE23BtN88ktqM=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/fuse.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/mark.js" crossorigin="anonymous"></script>
 <script>
   {{- with .Site.GetPage "/" }}
   {{- with .OutputFormats.Get "json" }}

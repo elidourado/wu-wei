@@ -24,7 +24,7 @@
 <script>
   {{- with .Site.GetPage "/" }}
   {{- with .OutputFormats.Get "json" }}
-  var index = "{{ .RelPermalink }}";
+  var index = "../index.json";
   {{- end -}}
   {{- end }}
 </script>

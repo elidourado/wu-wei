@@ -361,6 +361,22 @@ div.widget {
 
 /* tables */
 
+.election table {
+	width: unquote("min(500px,100%)");
+}
+
+table {
+	font-family: $sans-serif;
+	margin: 0 auto;
+	
+	td.text, th.text {
+		width: 40%;
+	}
+	td.number, th.number {
+		width: 20%;
+	}
+}
+
 td.text,
 th.text {
 	text-align: left;
@@ -369,6 +385,7 @@ th.text {
 td.number,
 th.number {
 	text-align: right;
+//	padding-left: 20px;
 }
 
 

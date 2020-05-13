@@ -362,7 +362,7 @@ div.widget {
 /* tables */
 
 .election table {
-	width: unquote("min(500px,100%)");
+	width: unquote("min(600px,100%)");
 }
 
 table {
@@ -370,10 +370,10 @@ table {
 	margin: 0 auto;
 	
 	td.text, th.text {
-		width: 40%;
+		width: 100%*2/7;
 	}
 	td.number, th.number {
-		width: 20%;
+		width: 100%/7;
 	}
 }
 

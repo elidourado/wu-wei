@@ -14,7 +14,7 @@ body {
 	position: relative;
 	top: 0px;
 	font-size: unquote(
-		"min(calc(16px + (22-16) * ((100vw - 320px) / (820-320))),22px)"
+		"min(calc(16px + (22-16) * ((100vw - 500px) / (820-500))),22px)"
 	);
 	font-family: $serif;
 	font-weight: lighter;
@@ -362,7 +362,7 @@ div.widget {
 /* tables */
 
 .election table {
-	width: unquote("min(600px,100%)");
+	width: unquote("min(750px,100%)");
 }
 
 table {
@@ -370,10 +370,10 @@ table {
 	margin: 0 auto;
 	
 	td.text, th.text {
-		width: 100%*2/7;
+		width: 25%;
 	}
 	td.number, th.number {
-		width: 100%/7;
+		width: 15%;
 	}
 }
 

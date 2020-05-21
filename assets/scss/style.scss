@@ -362,13 +362,14 @@ div.widget {
 /* tables */
 
 .election table {
-	width: unquote("min(750px,100%)");
+//	width: unquote("min(800px,50em)");
+	width: 35em;
 
 	td.text, th.text {
-		width: 23%;
+		width: 17.5%;
 	}
 	td.number, th.number {
-		width: 11%;
+		width: 11.5%;
 	}
 }
 

@@ -1,10 +1,4 @@
-$serif: "Merriweather", serif;
-$sans-serif: "Source Sans Pro", sans-serif;
-$monospace: "Space Mono", monospace;
-$font-color: #222;
-$second-color: #aaa;
-$link-color: #7080c0;
-$footer-color: #ccc;
+@import "vars";
 
 html {
 	min-height: 100vh;
@@ -328,71 +322,6 @@ footer {
 	min-height: 80px;
 }
 
-/* main a[href*="wikipedia.org/wiki/"]::after {
-  color: #222;
-  font-family: "Font Awesome 5 Brands";
-  font-weight: 400;
-  font-size: 0.65em;
-  content: "\f266";
-  vertical-align: super;
-  display: inline-block;
-  opacity: 0.85;
-} */
-
-/* widgets */
-
-.widget-container {
-	// overflow: auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
-	align-items: center;
-  }
-
-div.widget {
-	display: inline-block;
-	font-size: .7em;
-	min-width: 250px;
-	max-width: 390px;
-	table {
-		width: 100%;
-	}
-}
-
-/* tables */
-
-.election table {
-//	width: unquote("min(800px,50em)");
-	width: 35em;
-
-	td.text, th.text {
-		width: 17.5%;
-	}
-	td.number, th.number {
-		width: 11.5%;
-	}
-}
-
-table {
-	font-family: $sans-serif;
-	margin: 0 auto;
-}
-
-td.text,
-th.text {
-	text-align: left;
-}
-
-td.number,
-th.number {
-	text-align: right;
-//	padding-left: 20px;
-}
-
-
-
-/* in-house semantic classes */
-
 .bold {
 	font-weight: bold;
 }
@@ -403,45 +332,4 @@ th.number {
 }
 
 
-
-// #chart {
-// 	height: calc(200px + 40vw);
-// }
-
-// #donate {
-// 	display: grid;
-// 	grid-column-gap: 20px;
-// 	grid-template-columns: auto auto auto auto;
-
-// 	.qr-code {
-// 		text-align: center;
-// 		font-size: 0.75rem;
-// 		word-break: break-word;
-
-// 		img {
-// 			margin: 0 auto;
-// 		}
-// 	}
-// }
-
-// .tablenote {
-// 	color: #999;
-// 	font-size: 0.9rem;
-// }
-
-
-
-// #tables {
-// 	display: grid;
-// 	grid-column-gap: 50px;
-// 	grid-template-columns: auto auto;
-// }
-
-// .table-container {
-// 	margin-bottom: 1.5em;
-// 	width: 100%;
-// }
-
-// table.table {
-// 	width: 375px;
-// }
+@import "user";

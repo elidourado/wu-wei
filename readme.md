@@ -13,7 +13,6 @@ It has a few cool features:
 * Search function
 * Continuously dynamic font sizing based on browser width
 * Mathjax support
-* Support for FRED charts
 * Hero image support (add #hero after the image url in markdown)
 * Nifty animated corner twitter widget
 

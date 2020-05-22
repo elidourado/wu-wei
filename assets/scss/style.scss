@@ -8,7 +8,7 @@ body {
 	position: relative;
 	top: 0px;
 	font-size: unquote(
-		"min(calc(16px + (22-16) * ((100vw - 500px) / (820-500))),22px)"
+		"max(14px,min(calc(14px + 8 * ((100vw - 500px) / 320)),22px))"
 	);
 	font-family: $serif;
 	font-weight: lighter;
@@ -310,12 +310,16 @@ main {
 }
 
 footer {
+	width: 80vw;
 	position: absolute;
 	bottom: 0px;
-	// margin-top: 50px;
+	right: 0px;
+	left: 0px;
+	padding-left: 10vw;
+	padding-right: 10vw;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	width: 100%;
+	margin: 0 auto;
 	background-color: $footer-color;
 	font-family: $sans-serif;
 	font-size: 0.75em;

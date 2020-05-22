@@ -1,4 +1,4 @@
-// Hugo search function from https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae
+// Original Hugo search function from https://gist.github.com/eddiewebb/735feb48f50f0ddd65ae5606a1cb41ae
 
 summaryInclude = 60;
 var fuseOptions = {
@@ -21,6 +21,7 @@ var fuseOptions = {
 var fuse;
 var searchQuery = "";
 var ready = false;
+var index = $("link#search-data").attr("href");
 
 $.getJSON(index, function (data) {
 	// console.log("loaded index");

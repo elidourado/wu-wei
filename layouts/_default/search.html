@@ -3,7 +3,7 @@
   <h1 id="title">{{ .Title | markdownify }}</h1>
   <div>
         <article id="content">
-          <form class="search" action="{{ "search" | relURL }}">
+          <form class="search">
             <input id="search-query" name="query" placeholder="Search &#9166;"/>
           </form>
           <div id="search-results">
@@ -21,12 +21,12 @@
 </script>
 <script src="https://unpkg.com/fuse.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/mark.js/dist/jquery.mark.min.js" crossorigin="anonymous"></script>
-<script>
-  {{- with .Site.GetPage "/" }}
-  {{- with .OutputFormats.Get "json" }}
-  var index = "../index.json";
-  {{- end -}}
-  {{- end }}
-</script>
+
+{{ with .Site.GetPage "/" }}
+{{- with .OutputFormats.Get "json" -}}
+{{- printf `<link id="search-data" href="%s" />` .RelPermalink | safeHTML -}}
+{{- end -}}
+{{- end }}
+
 <script src="/js/search.js"></script>
 {{ end }}

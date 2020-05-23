@@ -1,4 +1,6 @@
 @import "vars";
+@import url('https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css');
+@import "fonts";
 
 html {
 	min-height: 100vh;
@@ -11,7 +13,7 @@ body {
 		"max(14px,min(calc(14px + 8 * ((100vw - 500px) / 320)),22px))"
 	);
 	font-family: $serif;
-	font-weight: lighter;
+	font-weight: 300;
 	line-height: 1.55;
 	// padding-bottom: 20px;
 	// margin: 0 auto;
@@ -71,7 +73,7 @@ header {
 		display: block;
 		margin: 0 auto;
 		text-align: center;
-		font-style: italic;
+		//font-style: italic;
 		margin-top: -2em;
 
 		a {
@@ -124,6 +126,7 @@ main {
 
 	#meta-top {
 		font-family: $sans-serif;
+		font-weight: 400;
 		font-size: 0.75em;
 		color: $second-color;
 		margin-top: -1.2em;
@@ -146,6 +149,7 @@ main {
 	aside#meta-bottom {
 		color: $second-color;
 		font-family: $sans-serif;
+		font-weight: 400;
 		display: block;
 		overflow: hidden;
 		font-size: 0.75em;
@@ -327,7 +331,7 @@ footer {
 }
 
 .bold {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 .center {

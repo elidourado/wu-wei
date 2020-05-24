@@ -11,7 +11,7 @@
 
     {{ $section := "blog"}}
     {{ if (isset .Site.Params "blogs") }}
-    {{ $section = .Site.Params "blogs" }}
+    {{ $section = .Site.Params.blogs }}
     {{ end }}
     {{ $allPosts := (where .Site.RegularPages "Section" $section) | intersect (where .Site.RegularPages "Kind" "page")}}
         

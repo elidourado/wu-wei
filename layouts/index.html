@@ -7,12 +7,20 @@
     {{ end }}
     <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
     {{.Content}}
-    {{ $nbPosts := len (where (where .Site.Pages "Section" "blog") "Params.best" true) }}
+
+
+    {{ $section := "blog"}}
+    {{ if (isset .Site.Params "blogs") }}
+    {{ $section = .Site.Params "blogs" }}
+    {{ end }}
+    {{ $allPosts := (where .Site.RegularPages "Section" $section) | intersect (where .Site.RegularPages "Kind" "page")}}
+        
+    {{ $nbPosts := len (where $allPosts "Params.best" true) }}
     {{ if gt $nbPosts 0 }}
     <h3>Favorite blog posts</h3>
     <ul class="pagelist">
         <!-- Ranges through content/blog/*.md tagged "best" -->
-        {{ range (where (where .Site.Pages "Section" "blog") "Params.best" true) }}
+        {{ range (where $allPosts "Params.best" true) }}
             {{ partial "li.html" . }}
         {{ end }}
     </ul>
@@ -22,7 +30,7 @@
     <h3>Latest blog posts</h3>
     <ul class="pagelist">
     <!-- Ranges through content/blog/*.md -->
-    {{ range (first .Site.Params.latestpostcount (where .Site.RegularPages "Section" "blog") | intersect (where .Site.RegularPages "Kind" "page")) }}
+    {{ range (first .Site.Params.latestpostcount $allPosts) }}
         {{ partial "li.html" . }}
     {{ end }}
     </ul>

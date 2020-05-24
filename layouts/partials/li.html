@@ -1,3 +1,3 @@
 <li>
-    <span class="meta">{{.Date.Format .Site.Params.dateform}}</span> <a href="{{.RelPermalink}}">{{.Title | markdownify}}</a>
+    <span class="meta">{{if (isset .Site.Params "dateform")}}{{.Date.Format .Site.Params.dateform}}{{else}}{{.Date.Format "Jan 2, 2006"}}{{end}}</span> <a href="{{.RelPermalink}}">{{.Title | markdownify}}</a>
 </li>

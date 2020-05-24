@@ -4,7 +4,7 @@
   {{ if (or (in .Site.Params.blogs .Section) (and (eq "blog" .Section) (not (isset .Site.Params "blogs")))) }}
   <aside id="meta-top">
       <section>
-          <span id="date" title="{{ .Date.Format .Site.Params.dateformfull }}">{{ .Date.Format .Site.Params.dateform }}</span>
+          <span id="date" title="{{ if (isset .Site.Params "dateformfull") }}{{ .Date.Format .Site.Params.dateformfull }}{{ else }}{{ .Date.Format "Mon Jan 2 2006 15:04:05 MST" }}{{ end }}">{{if (isset .Site.Params "dateform")}}{{ .Date.Format .Site.Params.dateform }}{{ else }}{{ .Date.Format "Jan 2, 2006" }}{{ end }}</span>
           {{ if not .Site.Params.noreadingtime }}
           <span id="reading-time">{{ .ReadingTime }} minute read</span>
           {{ end }}
@@ -12,7 +12,7 @@
           {{ if ne .Params.hacker_news_id "" }}
           <span id="hn"><a href="https://news.ycombinator.com/item?id={{ .Params.hacker_news_id }}">Hacker News</a></span>
           {{ end }}
-        {{ end }}
+          {{ end }}
 
         </section>    
   </aside>

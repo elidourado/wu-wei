@@ -7,8 +7,6 @@
     {{ end }}
     <!-- "{{.Content}}" pulls from the markdown content of the corresponding _index.md -->
     {{.Content}}
-
-
     {{ $section := "blog"}}
     {{ if (isset .Site.Params "blogs") }}
     {{ $section = .Site.Params.blogs }}
@@ -25,8 +23,7 @@
         {{ end }}
     </ul>
     {{ else if isset .Site.Params "latestpostcount" }}
-    {{ $nbPosts := len $allPosts }}
-    {{ if gt $nbPosts 0 }}
+    {{ if gt (len $allPosts) 0 }}
     <h3>Latest blog posts</h3>
     <ul class="pagelist">
     <!-- Ranges through content/blog/*.md -->

@@ -22,7 +22,7 @@
     <h3>Latest blog posts</h3>
     <ul class="pagelist">
     <!-- Ranges through content/blog/*.md -->
-    {{ range (first .Site.Params.latestpostcount (where .Site.RegularPages "Section" "blog" intersect .Site.RegularPages "Kind" "page")) }}
+    {{ range (first .Site.Params.latestpostcount (where .Site.RegularPages "Section" "blog" intersect where .Site.RegularPages "Kind" "page")) }}
         {{ partial "li.html" . }}
     {{ end }}
     </ul>

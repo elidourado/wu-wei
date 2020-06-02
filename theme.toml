@@ -4,7 +4,7 @@
 name = "Wu Wei"
 license = "MIT"
 licenselink = "https://github.com/elidourado/wu-wei/blob/master/LICENSE"
-description = ""
+description = "A simple theme"
 homepage = "https://github.com/elidourado/wu-wei/"
 tags = []
 features = []

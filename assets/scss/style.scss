@@ -71,7 +71,10 @@ header {
 		display: block;
 		margin: 0 auto;
 		text-align: center;
-		//font-style: italic;
+		font-size: 1.5em;
+		font-family: $script;
+		font-weight: lighter;
+		// font-style: italic;
 		margin-top: -2em;
 
 		a {

@@ -11,15 +11,15 @@
     {{ if (isset .Site.Params "blogs") }}
     {{ $section = .Site.Params.blogs }}
     {{ end }}
-    {{ $allPosts := (where .Site.RegularPages "Section" $section) | intersect (where .Site.RegularPages "Kind" "page")}}
+    {{- $allPosts := (where .Site.RegularPages "Section" $section) | intersect (where .Site.RegularPages "Kind" "page") -}}
         
-    {{ $nbPosts := len (where $allPosts "Params.best" true) }}
+    {{- $nbPosts := len (where $allPosts "Params.best" true) -}}
     {{ if gt $nbPosts 0 }}
     <h3>Favorite blog posts</h3>
     <ul class="pagelist">
         <!-- Ranges through content/blog/*.md tagged "best" -->
         {{ range (where $allPosts "Params.best" true) }}
-            {{ partial "li.html" . }}
+            {{- partial "li.html" . -}}
         {{ end }}
     </ul>
     {{ else if isset .Site.Params "latestpostcount" }}
@@ -28,7 +28,7 @@
     <ul class="pagelist">
     <!-- Ranges through content/blog/*.md -->
     {{ range (first .Site.Params.latestpostcount $allPosts) }}
-        {{ partial "li.html" . }}
+        {{- partial "li.html" . -}}
     {{ end }}
     </ul>
     {{ end }} <!-- posts > 0 -->

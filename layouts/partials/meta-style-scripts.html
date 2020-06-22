@@ -1,7 +1,7 @@
-<meta charset="utf-8">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="HandheldFriendly" content="True" />
+<meta name="MobileOptimized" content="320" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>{{ block "title" . }}{{ with .Params.Title }}{{if (ne . $.Site.Title)}}{{ . | markdownify | plainify | htmlUnescape }} | {{ end }}{{ end }}{{ .Site.Title }}{{ end }}</title>
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -9,18 +9,23 @@
 
 <!-- Site style -->
 <link href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css" rel="stylesheet" />
-{{- $CSS := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css") -}}
-<link href='{{ $CSS.RelPermalink }}' rel="stylesheet" />
+{{- $CSS := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css") -}} {{ if (ne .Kind "404")}}
+<link href="{{ $CSS.RelPermalink }}" rel="stylesheet" />
+{{ else }}
+<style>
+	{{- $CSS.Content | safeCSS -}}
+</style>
+{{ end }}
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,700;1,300;1,700&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Mr+De+Haviland&display=swap" rel="stylesheet" />
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'" />
 <noscript>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" />
 </noscript>
 
 <!-- JS -->
@@ -33,29 +38,22 @@
 {{- end -}}
 
 <!-- RSS -->
-{{- with .Site.GetPage "/" }}
-{{- with .OutputFormats.Get "rss" -}}
-    {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML -}}
-{{- end -}}
-{{- end }}
+{{- with .Site.GetPage "/" }} {{- with .OutputFormats.Get "rss" -}} {{- printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML -}} {{- end -}} {{- end }}
 
 <!-- Mathjax -->
 {{- if .Params.mathjax}}{{ partial "mathjax.html" . }}{{- end -}}
 
 <!-- Internal templates -->
-{{- template "_internal/opengraph.html" . -}}
-{{- template "_internal/twitter_cards.html" . -}}
-{{- template "_internal/google_news.html" . -}}
-{{- template "_internal/schema.html" . -}}
-{{/*  {{- template "_internal/google_analytics_async.html" . -}}  */}}
-
-{{- with .Site.GoogleAnalytics -}}
+{{- template "_internal/opengraph.html" . -}} {{- template "_internal/twitter_cards.html" . -}} {{- template "_internal/google_news.html" . -}} {{- template "_internal/schema.html" . -}} {{/* {{- template
+"_internal/google_analytics_async.html" . -}} */}} {{- with .Site.GoogleAnalytics -}}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', '{{ . }}');
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag("js", new Date());
+	gtag("config", "{{ . }}");
 </script>
 {{- end -}}

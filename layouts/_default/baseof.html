@@ -5,7 +5,7 @@
   </head>
   <body>
     {{ block "header" .}}
-      {{- with .Site.Social.twitter }}{{ partial "twitter-widget.html" . }}{{ end -}}
+    {{ if templates.Exists ( printf "partials/%s" "twitter-widget.html" ) }}{{ partial "twitter-widget.html" . }}{{ end }}
       {{- partial "site-header.html" . -}}
     {{ end }}
     {{ block "main" . }}

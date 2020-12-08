@@ -14,7 +14,7 @@ It has a few cool features:
 * Continuously dynamic font sizing based on browser width
 * Mathjax support
 * Hero image support (add #hero after the image url in markdown)
-* Nifty animated corner twitter widget
+* Nifty animated corner twitter widget (you need to add a second module imports block with path github.com/elidourado/twitter-widget to use it)
 
 I aspire to improve the theme a lot as time becomes available.
 

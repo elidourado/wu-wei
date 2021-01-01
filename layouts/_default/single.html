@@ -17,11 +17,9 @@
         </section>    
   </aside>
   {{ end }}
-  <div>
-        <article id="content">
-           {{ .Content }}
-        </article>
-  </div>
+    <article id="content">
+        {{ .Content }}
+    </article>
 {{ if (or (in .Site.Params.blogs .Section) (and (eq "blog" .Section) (not (isset .Site.Params "blogs")))) }}
 <aside id="meta-bottom">
     <div>

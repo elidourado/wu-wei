@@ -1,9 +1,9 @@
 {{ define "main" }}
 <main>
+    <!-- <header> -->
+    <h1>{{ .Title | markdownify }}</h1>
+    <!-- </header> -->
     <article>
-        <!-- <header> -->
-            <h1>{{ .Title | markdownify }}</h1>
-        <!-- </header> -->
         <canvas id="tag-cloud"></canvas>
         {{/*  <ul class="terms">
             {{ range $key, $value := .Data.Terms }}

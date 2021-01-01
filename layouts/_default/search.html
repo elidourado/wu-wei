@@ -1,32 +1,25 @@
 {{ define "main" }}
 <main>
-  <h1 id="title">{{ .Title | markdownify }}</h1>
-  <div>
-        <article id="content">
-          <form class="search">
-            <input id="search-query" name="query" placeholder="Search &#9166;"/>
-          </form>
-          <div id="search-results">
-          </div>
-        </article>
-  </div>
+	<h1 id="title">{{ .Title | markdownify }}</h1>
+	<article id="content">
+		<form class="search">
+			<input id="search-query" name="query" placeholder="Search &#9166;" />
+		</form>
+		<div id="search-results"></div>
+	</article>
 </main>
 <script id="search-result-template" type="text/x-js-template">
-  <div id="summary-${key}" class=search-result>
-    <a href="${link}">${title}</a>
-    <div class="front-matter">
-    <p>${snippet}...</p>
-    </div>
-  </div>
+	<div id="summary-${key}" class=search-result>
+	  <a href="${link}">${title}</a>
+	  <div class="front-matter">
+	  <p>${snippet}...</p>
+	  </div>
+	</div>
 </script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6/dist/fuse.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/mark.js@8/dist/jquery.mark.min.js" crossorigin="anonymous"></script>
 
-{{ with .Site.GetPage "/" }}
-{{- with .OutputFormats.Get "json" -}}
-{{- printf `<link id="search-data" href="%s" />` .RelPermalink | safeHTML -}}
-{{- end -}}
-{{- end }}
+{{ with .Site.GetPage "/" }} {{- with .OutputFormats.Get "json" -}} {{- printf `<link id="search-data" href="%s" />` .RelPermalink | safeHTML -}} {{- end -}} {{- end }}
 
 <script src="/js/search.js"></script>
 {{ end }}

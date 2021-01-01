@@ -1,4 +1,5 @@
 <header>
+	{{ if templates.Exists ( printf "partials/%s" "twitter-widget.html" ) }}{{ partial "twitter-widget.html" . }}{{ end }}
 	<a href="{{ .Site.Home.RelPermalink }}"><h1>{{ .Site.Title}}</h1></a>
 	<nav id="header-menu">
 		<ul>

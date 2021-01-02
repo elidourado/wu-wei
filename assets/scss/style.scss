@@ -111,7 +111,7 @@ main {
 	article {
 		display: block;
 		// min-width: 80vw;
-		width: unquote("min(100vw,820px)");
+		width: unquote("min(calc(100vw-20px),820px)");
 	}
 
 	img {

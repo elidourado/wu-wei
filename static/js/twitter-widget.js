@@ -14,6 +14,8 @@ svg.setAttribute("aria-hidden", "true");
 svg.innerHTML = paths;
 var a = document.createElement("a");
 a.setAttribute("href", "https://www.twitter.com/" + username);
+a.setAttribute("onmouseover", "gtag('event', 'hover',{ 'event_category': 'corner-widget' });");
+a.setAttribute("onclick", "gtag('event', 'click',{ 'event_category': 'corner-widget' });");
 a.appendChild(svg);
 let style = document.createElement("style");
 style.innerHTML = `svg#twitter-corner-logo:hover #twitter-bird-wing1 {

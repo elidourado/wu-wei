@@ -292,7 +292,7 @@ main {
 				// font-family: $sans-serif;
 
 				&:not(:last-of-type)::after {
-					content: " · ";
+					content: "\00a0·\00a0";
 				}
 
 				a {

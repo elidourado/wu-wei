@@ -24,10 +24,10 @@
 <aside id="meta-bottom">
     <div>
     {{ with .Params.tags }}
-    <span id="tags-label">Tagged:</span>
+    <span id="tags-label">Tagged:&nbsp;</span>
     <ul id="tags">
       {{ range where . "." "ne" ""}}
-        <li> <a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a> </li>
+        <li><a href="{{ "tags/" | relURL }}{{ . | urlize }}">{{ . }}</a></li>
       {{ end }}
     </ul>
     {{ end }}

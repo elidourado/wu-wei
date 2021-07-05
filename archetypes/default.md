@@ -10,7 +10,7 @@ description: ""
 best: false
 
 # images:
-#    -"img/image.jpg"
+#    - "img/image.jpg"
 # hacker_news_id: ""
 # mathjax: true
 ---

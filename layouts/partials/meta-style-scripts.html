@@ -44,8 +44,8 @@
 {{- if .Params.mathjax}}{{ partial "mathjax.html" . }}{{- end -}}
 
 <!-- Internal templates -->
-{{- template "_internal/opengraph.html" . -}} {{- template "_internal/twitter_cards.html" . -}} {{- template "_internal/google_news.html" . -}} {{- template "_internal/schema.html" . -}} {{/* {{- template
-"_internal/google_analytics_async.html" . -}} */}} {{- with .Site.GoogleAnalytics -}}
+{{- template "_internal/opengraph.html" . -}} {{- template "_internal/twitter_cards.html" . -}} {{- template "_internal/schema.html" . -}} {{/* {{- template "_internal/google_analytics_async.html" . -}} */}} {{- with .Site.GoogleAnalytics
+-}}
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>

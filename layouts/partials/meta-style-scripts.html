@@ -8,8 +8,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
 <!-- Site style -->
-<link href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css" rel="stylesheet" />
-{{- $CSS := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css") -}} {{ if (ne .Kind "404")}}
+{{/* <link href="https://cdn.jsdelivr.net/npm/normalize.css@8/normalize.min.css" rel="stylesheet" /> */}} {{- $CSS := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css") -}} {{ if (ne .Kind "404")}}
 <link href="{{ $CSS.RelPermalink }}" rel="stylesheet" />
 {{ else }}
 <style>
